@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+# Other
+build
+mpich
+cmake-build-release
+cmake-build-debug
+.idea/
+.vscode/
+.vs/
+scripts/variants.csv
+scripts/variants.xlsx
+venv*
+sln/
+//
