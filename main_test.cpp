@@ -110,7 +110,7 @@ int main(int argc, char** argv) {
     double startwtime_cv, endwtime_cv;
 
     if (rank == 0) {
-        height = 1000; width = 1000;
+        height = 5000; width = 5000;
         src.create(height, width, CV_8UC1);
         dst_par.create(height, width, CV_8UC1);
         dst_seq.create(height, width, CV_8UC1);
@@ -148,7 +148,6 @@ int main(int argc, char** argv) {
                 dst_seq.at<uchar>(i, j) = matrix_seq[i * width + j];
             }
         }
-
 
         namedWindow("Source Image", WINDOW_NORMAL | WINDOW_KEEPRATIO);
         namedWindow("Linear Histogram Stratche Image(parallel) " + to_string(endwtime_p - startwtime_p), WINDOW_NORMAL | WINDOW_KEEPRATIO);

@@ -148,18 +148,32 @@ int main(int argc, char** argv) {
     while(true) {
         if (rank == 0) {
             char c = waitKey();
-            
-            if (c == 'Q' && current_image != 1) {
-                current_image--;
-            }
 
-            if (c == 'S' && current_image != 6) {
-                current_image++;
-            }
+            #if defined( _MSC_VER )
+                if ((c == 'Q' || c == 'q') && current_image != 1) {
+                    current_image--;
+                }
 
-            if (c == -1) {
-                break;
-            }
+                if ((c == 'E' || c == 'e') && current_image != 6) {
+                    current_image++;
+                }
+
+                if (c == -1) {
+                    break;
+                }
+            #else
+                if (c == 'Q' && current_image != 1) {
+                    current_image--;
+                }
+
+                if (c == 'S' && current_image != 6) {
+                    current_image++;
+                }
+
+                if (c == -1) {
+                    break;
+                }
+            #endif
 
             string image_path = samples::findFile("resource/file" + to_string(current_image) + ".jpg");
             src = imread(image_path, IMREAD_COLOR);

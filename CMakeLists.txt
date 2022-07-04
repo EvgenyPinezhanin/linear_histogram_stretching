@@ -12,7 +12,11 @@ add_custom_command(
         TARGET ${COPY_RESOURCE} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
                 ${CMAKE_SOURCE_DIR}/resource/
-                ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE}/resource/)
+                ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE}/resource/
+	COMMAND ${CMAKE_COMMAND} -E copy_directory
+          	${CMAKE_SOURCE_DIR}/resource/
+          	${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}/resource
+)
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
